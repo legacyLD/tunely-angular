@@ -28,11 +28,10 @@
     </div>
 
     <div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">
-      <p><b>albumsIndexCtrl.newAlbum:</b> {{albumsIndexCtrl.newAlbum}}</p>
       <input type="text" class="form-control" placeholder="New album name" ng-model="albumsIndexCtrl.newAlbum.name">
       <input type="text" class="form-control" placeholder="New album artist" ng-model="albumsIndexCtrl.newAlbum.artistName">
       <div ng-repeat="album in albumsIndexCtrl.albums">
-        {{album}}
+        <p><b>{{album.name}}:</b> {{album.artistName}}</p>
       </div>
     </div>
 
