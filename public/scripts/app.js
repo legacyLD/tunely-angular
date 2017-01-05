@@ -2,24 +2,24 @@ angular
   .module('tunely', [])
   .controller('AlbumsIndexController', AlbumsIndexController);
 
-  function AlbumsIndexController () {
+  var baseUrl = 'http://localhost:3000';
+
+  AlbumsIndexController.$inject = ['$http'];
+  function AlbumsIndexController (  $http  ) {
   var vm = this;
-  vm.newAlbum = {
-      name: 'License to Ill',
-      artistName: 'Beastie Boys'
-  };
-  vm.albums = [
-    {
-      name: 'Coming Home',
-      artistName: 'Leon Bridges'
-    },
-    {
-      name: 'Are We There',
-      artistName: 'Sharon Van Etten'
-    },
-    {
-      name: 'The Queen is Dead',
-      artistName: 'The Smiths'
-    }
-  ];
+  vm.results = null;
+
+  $http({
+    method: 'GET',
+    url: '/api/albums'
+  }).then(resSuccess, resError);
+
+  function resSuccess(res) {
+    console.log("resSuccess:", res);
+    vm.albums = res.data;
+  }
+
+  function resError(res) {
+    console.log("error:" + res);
+  }
 }
