@@ -31,9 +31,15 @@
       <h3><b>New Album:</b></h3>
       <h4 class="form-text"><b>{{albumsIndexCtrl.newAlbum.name}}</b></h4>
       <h5 class="form-text"><b>{{albumsIndexCtrl.newAlbum.artistName}}</b></h5>
+      <h5 class="form-text"><b>{{albumsIndexCtrl.newAlbum.releaseDate}}</b></h5>
+      <h5 class="form-text"><b>{{albumsIndexCtrl.newAlbum.genres}}</b></h5>
       <input type="text" class="form-control" placeholder="New album name" ng-model="albumsIndexCtrl.newAlbum.name">
       </br>
       <input type="text" class="form-control" placeholder="New album artist" ng-model="albumsIndexCtrl.newAlbum.artistName">
+      </br>
+      <input type="text" class="form-control" placeholder="New Album release date" ng-model="albumsIndexCtrl.newAlbum.releaseDate">
+      </br>
+      <input type="text" class="form-control" placeholder="New Albume genre categories" ng-model="albumsIndexCtrl.newAlbum.genres">
       <div ng-repeat="album in albumsIndexCtrl.albums | orderBy:'artistName'">
         <h3><b>{{album.name}}</b></h3>
         <h4>{{album.artistName}}</h4>
